@@ -1,0 +1,76 @@
+html, body, #root {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.react-flow__controls button {
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.react-flow__controls button:hover {
+    background-color: #f5f5f5;
+}
+
+.react-flow__edge-path {
+    stroke: #b1b1b7;
+    stroke-width: 2;
+}
+
+.react-flow__edge.animated path {
+    stroke-dasharray: 5;
+    animation: dashdraw 0.5s linear infinite;
+}
+
+@keyframes dashdraw {
+    from { stroke-dashoffset: 10; }
+}
+
+@keyframes pulseError {
+    0% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(244, 67, 54, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0); }
+}
+
+.react-flow__edge-path {
+    stroke: #888;
+    stroke-width: 2;
+}
+
+.react-flow__edge.animated path {
+    stroke-dasharray: 5;
+    animation: dashdraw 0.5s linear infinite;
+}
+
+@keyframes dashdraw {
+    from { stroke-dashoffset: 10; }
+}
+
+.react-flow__edge-label {
+    pointer-events: all;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.react-flow__edge-label:hover {
+    transform: scale(1.1);
+    background-color: #f5f5f5 !important;
+}
+
+.react-flow__viewport {
+    margin-top: 80px;
+}
+
+.search-bar-container {
+    transition: all 0.3s ease;
+}
+
+.search-bar-container:hover {
+    transform: translateX(-50%) scale(1.02);
+}
