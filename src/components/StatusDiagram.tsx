@@ -34,7 +34,6 @@ export default function StatusDiagram({orderData}: { orderData: OrderData }) {
         }
     }, [orderData]);
 
-
     const getLayoutedElements = (orderData: OrderData) => {
         const nodes: unknown[] = [];
         const edges: unknown[] = [];
@@ -43,12 +42,12 @@ export default function StatusDiagram({orderData}: { orderData: OrderData }) {
         const positions: Record<OrderStatus, { x: number; y: number }> = {} as Record<OrderStatus, { x: number; y: number }>;
         const levelNodes: Record<number, OrderStatus[]> = {};
 
-        // Увеличиваем расстояние между узлами
-        const NODE_DISTANCE_X = 600; // Было 300
-        const NODE_DISTANCE_Y = 300; // Было 150
+        // Расстояние между узлами
+        const NODE_DISTANCE_X = 600;
+        const NODE_DISTANCE_Y = 300;
 
-        // BFS для определения уровней
-        queue.push({status: OrderStatus.Created, level: 0});
+        // Определение уровня (последовательности)
+        queue.push({status: OrderStatus.Created, level: 0}, {status: OrderStatus.RegistrationCancelSent, level: 15}, {status: OrderStatus.Canceled, level: 16}, {status: OrderStatus.Canceled, level: 16} );
         visited.add(OrderStatus.Created);
 
         while (queue.length > 0) {
@@ -66,12 +65,12 @@ export default function StatusDiagram({orderData}: { orderData: OrderData }) {
             }
         }
 
-        // Позиционирование узлов с увеличенным расстоянием
+        // Расположение узлов
         Object.entries(levelNodes).forEach(([levelStr, statuses]) => {
             const level = parseInt(levelStr);
             statuses.forEach((status, index) => {
                 const x = level * NODE_DISTANCE_X;
-                const y = index * NODE_DISTANCE_Y;
+                const y = status === OrderStatus.Canceled ? index * NODE_DISTANCE_Y * (-2) : index * NODE_DISTANCE_Y;
                 positions[status] = {x, y};
             });
         });

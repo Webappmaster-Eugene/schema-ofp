@@ -7,6 +7,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
+          // @ts-expect-error includes
           if (id?.includes('node_modules')) {
             return id.toString().split('node_modules/')[1].split('/')[0].toString();
           }

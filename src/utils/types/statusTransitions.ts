@@ -2,8 +2,6 @@ import { OrderStatus } from "./order.ts";
 
 export const statusTransitions: Record<OrderStatus, OrderStatus[]> = {
     [OrderStatus.Created]: [OrderStatus.Canceled, OrderStatus.PassportChecking],
-    [OrderStatus.Canceled]: [],
-    [OrderStatus.Completed]: [],
     [OrderStatus.PassportChecking]: [OrderStatus.PassportAccepted, OrderStatus.PassportRejected],
     [OrderStatus.PassportAccepted]: [OrderStatus.AntiFraudChecking],
     [OrderStatus.PassportRejected]: [OrderStatus.Canceled],
@@ -28,7 +26,9 @@ export const statusTransitions: Record<OrderStatus, OrderStatus[]> = {
     [OrderStatus.RegistrationSuccess]: [OrderStatus.Completed],
     [OrderStatus.RegistrationError]: [OrderStatus.RegistrationCancelPending],
     [OrderStatus.RegistrationCancelPending]: [OrderStatus.RegistrationCancelSent],
-    [OrderStatus.RegistrationCancelSent]: [OrderStatus.Canceled]
+    [OrderStatus.RegistrationCancelSent]: [OrderStatus.Canceled],
+    [OrderStatus.Canceled]: [],
+    [OrderStatus.Completed]: [],
 };
 
 export const statusTitles: Record<OrderStatus, string> = {

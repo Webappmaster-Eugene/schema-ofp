@@ -9,13 +9,13 @@ export const demoOrders: Record<string, OrderData> = {
                 status: OrderStatus.Created,
                 timestamp: '2024-01-01T10:00:00',
                 description: 'Заявка создана клиентом',
-                additionalInfo: 'Клиент: Иван Иванов'
+                additionalInfo: 'DTO на входе: {"fio": "Иван Иванов", "passport": "1234567890"}'
             },
             {
                 status: OrderStatus.PassportChecking,
                 timestamp: '2024-01-01T10:15:00',
                 description: 'Начата проверка паспортных данных',
-                additionalInfo: 'Паспорт серия 1234 номер 567890'
+                additionalInfo: ''
             },
             {
                 status: OrderStatus.PassportAccepted,
@@ -37,21 +37,33 @@ export const demoOrders: Record<string, OrderData> = {
                 additionalInfo: 'Клиент: Иван Иванов'
             },
             {
+                status: OrderStatus.RiskLevelPending,
+                timestamp: '2024-01-01T12:00:00',
+                description: 'Ожидание проверки уровня риска',
+                additionalInfo: 'Клиент: Иван Иванов'
+            },
+            {
                 status: OrderStatus.RiskLevelLow,
                 timestamp: '2024-01-01T12:00:00',
                 description: 'Низкий уровень риска',
                 additionalInfo: 'Клиент: Иван Иванов'
             },
             {
-                status: OrderStatus.SbAdded,
+                status: OrderStatus.CourierPending,
                 timestamp: '2024-01-01T13:00:00',
-                description: 'СБ добавлено в систему',
+                description: 'Курьер назначен',
                 additionalInfo: 'Клиент: Иван Иванов'
             },
             {
                 status: OrderStatus.CourierAccepted,
                 timestamp: '2024-01-01T14:00:00',
-                description: 'Курьер назначен',
+                description: 'Курьер назначил встречу',
+                additionalInfo: 'Клиент: Иван Иванов'
+            },
+            {
+                status: OrderStatus.DocumentsPending,
+                timestamp: '2024-01-01T15:00:00',
+                description: 'Документы ожидают подписания',
                 additionalInfo: 'Клиент: Иван Иванов'
             },
             {
@@ -61,9 +73,27 @@ export const demoOrders: Record<string, OrderData> = {
                 additionalInfo: 'Клиент: Иван Иванов'
             },
             {
+                status: OrderStatus.RegistrationPending,
+                timestamp: '2024-01-01T16:00:00',
+                description: 'Ожидание РФТ',
+                additionalInfo: 'Клиент: Иван Иванов'
+            },
+            {
+                status: OrderStatus.RegistrationSent,
+                timestamp: '2024-01-01T16:00:00',
+                description: 'В РФТ отправлена',
+                additionalInfo: 'Клиент: Иван Иванов'
+            },
+            {
                 status: OrderStatus.RegistrationSuccess,
                 timestamp: '2024-01-01T16:00:00',
-                description: 'Регистрация успешно завершена',
+                description: 'Регистрация в РФТ успешно завершена',
+                additionalInfo: 'Клиент: Иван Иванов'
+            },
+            {
+                status: OrderStatus.Completed,
+                timestamp: '2024-01-01T16:00:00',
+                description: 'Заявка успешно закрыта',
                 additionalInfo: 'Клиент: Иван Иванов'
             }
         ]
@@ -135,6 +165,12 @@ export const demoOrders: Record<string, OrderData> = {
                 additionalInfo: 'Клиент: Иван Иванов'
             },
             {
+                status: OrderStatus.RiskLevelPending,
+                timestamp: '2024-01-01T12:00:00',
+                description: 'Ожидание проверки уровня риска',
+                additionalInfo: 'Клиент: Иван Иванов'
+            },
+            {
                 status: OrderStatus.RiskLevelMedium,
                 timestamp: '2024-01-03T16:00:00',
                 description: 'Средний уровень риска',
@@ -145,7 +181,31 @@ export const demoOrders: Record<string, OrderData> = {
                 timestamp: '2024-01-03T16:30:00',
                 description: 'Ожидание проверки СБ',
                 additionalInfo: 'Клиент: Иван Иванов'
-            }
+            },
+            {
+                status: OrderStatus.SbAdded,
+                timestamp: '2024-01-03T16:30:00',
+                description: 'СБ одобрил заявку',
+                additionalInfo: 'Клиент: Иван Иванов'
+            },
+            {
+                status: OrderStatus.CourierPending,
+                timestamp: '2024-01-01T13:00:00',
+                description: 'Курьер назначен',
+                additionalInfo: 'Клиент: Иван Иванов'
+            },
+            {
+                status: OrderStatus.CourierAccepted,
+                timestamp: '2024-01-01T14:00:00',
+                description: 'Курьер назначил встречу',
+                additionalInfo: 'Клиент: Иван Иванов'
+            },
+            {
+                status: OrderStatus.DocumentsPending,
+                timestamp: '2024-01-01T15:00:00',
+                description: 'Документы ожидают подписания',
+                additionalInfo: 'Клиент: Иван Иванов'
+            },
         ]
     }
 };
