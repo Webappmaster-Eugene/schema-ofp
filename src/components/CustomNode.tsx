@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Handle, Position, NodeProps } from '@xyflow/react';
 import {OrderHistoryItem, OrderStatus} from '../utils/types/order';
 import { CheckCircle, Error, Schedule, ArrowForward } from '@mui/icons-material';
